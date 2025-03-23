@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View/Update User Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>User Management System</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="view-update.html">View/Update Details</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="form-container">
+            <h2>Login to View/Update Details</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email:</label>
+                    <input type="email" id="loginEmail" name="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password:</label>
+                    <input type="password" id="loginPassword" name="loginPassword" required>
+                </div>
+                <button type="submit" class="submit-button">Login</button>
+                <div id="loginMessage" class="message"></div>
+            </form>
+        </section>
+
+        <section class="form-container" id="userDetailsSection" style="display: none;">
+            <h2>View/Update User Details</h2>
+            <div class="form-group">
+                <label for="viewEmail">Email:</label>
+                <input type="email" id="viewEmail" name="viewEmail" readonly>
+            </div>
+
+            <div id="userDetails" style="display: none;">
+                <h3>User Details</h3>
+                <form id="updateForm">
+                    <div class="form-group">
+                        <label for="updateName">Name:</label>
+                        <input type="text" id="updateName" name="updateName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="updateAge">Age:</label>
+                        <input type="number" id="updateAge" name="updateAge">
+                    </div>
+                    <button type="submit" class="submit-button">Update Details</button>
+                    <div id="updateMessage" class="message"></div>
+                    <input type="hidden" id="userId">
+                </form>
+            </div>
+            <div id="viewErrorMessage" class="message error" style="display: none;"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 User Management System</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', loginUser);
+        document.getElementById('updateForm').addEventListener('submit', updateUserDetails);
+    </script>
+</body>
+</html>
